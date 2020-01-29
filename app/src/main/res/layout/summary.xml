@@ -7,7 +7,7 @@
         android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
         android:text="Test Result"
         android:textSize="25sp"
 
@@ -20,19 +20,19 @@
         >
 
         <ProgressBar
-            android:id="@+id/progressBar2"
-            style="?android:attr/progressBarStyle"
+            android:id="@+id/progressBar3"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:progress="10"
-            android:progressBackgroundTint="@color/design_default_color_primary_dark"/>
+            android:progress="80"
+            android:progressDrawable="@drawable/summary_percentage" />
 
         <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
+            android:text="@string/result_percentage"
+            android:textSize="20dp"
             android:layout_gravity="center"
         />
 

@@ -22,6 +22,9 @@
         <activity
             android:name=".Questions">
         </activity>
+        <activity
+            android:name=".Summary">
+        </activity>
     </application>
 
 </manifest>
