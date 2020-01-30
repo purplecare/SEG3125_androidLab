@@ -1,0 +1,14 @@
+{
+  "CSI1102": [
+    {
+      "question_1": {
+        "body": "Which one is not a computer language",
+        "choice_a": "Java",
+        "choice_b": "C++",
+        "choice_c": "English",
+        "choice_d": "python ",
+        "answer": "c"
+      }
+    }
+  ]
+}

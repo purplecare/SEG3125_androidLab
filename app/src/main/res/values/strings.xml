@@ -14,5 +14,8 @@
     <string name="submit_button">Submit</string>
     <string name="next_button">Next</string>
     <string name="result_percentage">80%</string>
-
+    <string name="summary_title">Test Result</string>
+    <string name="restart">Try another test</string>
+    <string name="summary_body">Congratulations, You got 8/10 correct</string>
+    <string name="summary_passed">PASS</string>
 </resources>
