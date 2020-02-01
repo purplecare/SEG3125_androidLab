@@ -1,14 +1,32 @@
 {
   "CSI1102": [
+    {"body": "Which one is not a computer language",
+      "choice_a": "Java",
+      "choice_b": "C++",
+      "choice_c": "English",
+      "choice_d": "python ",
+      "answer": "English"},
+    {"body": "Which one is not a language",
+      "choice_a": "Japanese",
+      "choice_b": "Chinese",
+      "choice_c": "English",
+      "choice_d": "python",
+      "answer": "python"}
+  ],
+  "SEG2105": [
     {
-      "question_1": {
-        "body": "Which one is not a computer language",
-        "choice_a": "Java",
-        "choice_b": "C++",
-        "choice_c": "English",
-        "choice_d": "python ",
-        "answer": "c"
-      }
-    }
+      "body": "Which one is not a language",
+      "choice_a": "Japanese",
+      "choice_b": "Chinese",
+      "choice_c": "English",
+      "choice_d": "python",
+      "answer": "English"}
   ]
 }
+
+
+
+
+
+
+
