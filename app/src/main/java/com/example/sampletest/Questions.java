@@ -24,10 +24,12 @@ public class Questions extends Activity {
     int correct_count=0;
     String correct_answer=null;
     int number_of_question=0;
+    String selected_course;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.questions);
-        number_of_question=getIntent().getExtras().getInt("x");
+        number_of_question=getIntent().getExtras().getInt("number_questions");
+        selected_course=getIntent().getStringExtra("selected_course");
         Button submit=findViewById(R.id.submitButton);
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -46,7 +48,7 @@ public class Questions extends Activity {
     public void update(int i){
         try {
             JSONObject question_json = new JSONObject(loadJSONFromAsset());
-            JSONArray question= question_json.getJSONArray("CSI1102");
+            JSONArray question= question_json.getJSONArray(selected_course);
             JSONObject question_body= question.getJSONObject(i);
             TextView content=findViewById(R.id.questionContent);
             content.setText(question_body.getString("body"));
@@ -91,9 +93,7 @@ public class Questions extends Activity {
 
         }
         else {
-            Context context = getApplicationContext();
-            Toast toast = Toast.makeText(context,"Please Select a answer",Toast.LENGTH_SHORT);
-            toast.show();
+
         }
 
     }
