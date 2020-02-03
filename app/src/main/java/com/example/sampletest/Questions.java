@@ -23,13 +23,13 @@ public class Questions extends Activity {
     int question_doing=0;
     int correct_count=0;
     String correct_answer=null;
-    int number_of_question=0;
+    int number_of_question;
     String selected_course;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.questions);
-        number_of_question=getIntent().getExtras().getInt("number_questions");
-        selected_course=getIntent().getStringExtra("selected_course");
+        number_of_question=((MyApplication)this.getApplication()).getNumber_of_question();
+        selected_course=((MyApplication)this.getApplication()).getSelected_course();
         Button submit=findViewById(R.id.submitButton);
         submit.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -40,8 +40,14 @@ public class Questions extends Activity {
         Button next=findViewById(R.id.nextButton);
         next.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-               question_doing++;
-               next(question_doing);
+               next();
+            }
+        });
+        Button prev = findViewById(R.id.prevButton);
+        prev.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+               prev();
+
             }
         });
     }
@@ -61,39 +67,73 @@ public class Questions extends Activity {
             RadioButton ansD=findViewById(R.id.choice_d);
             ansD.setText(question_body.getString("choice_d"));
             TextView question_number=findViewById(R.id.questionNumber);
-            question_number.setText("Question: "+(question_doing+1)+"/10");
+            double q_number= (((double)question_doing+1)/number_of_question*100);
+            question_number.setText("Question: "+(question_doing+1)+"/"+number_of_question);
             ProgressBar question_progress=findViewById(R.id.question_progress);
-            question_progress.setProgress((question_doing+1)*10);
-            correct_answer=question_body.getString("answer");
+            question_progress.setProgress((int)q_number);
             RadioGroup answer=findViewById(R.id.answer);
             answer.clearCheck();
             Button submit=findViewById(R.id.submitButton);
             Button next=findViewById(R.id.nextButton);
-
-            if (question_doing+1<number_of_question){
+            Button prev=findViewById(R.id.prevButton);
+            if (question_doing+1<number_of_question && question_doing!=0){
                 submit.setVisibility(View.INVISIBLE);
+                next.setVisibility(View.VISIBLE);
+                prev.setVisibility(View.VISIBLE);
+
+            }
+            else if (question_doing==0){
+                submit.setVisibility(View.INVISIBLE);
+                next.setVisibility(View.VISIBLE);
+                prev.setVisibility(View.INVISIBLE);
             }
             else{
                submit.setVisibility(View.VISIBLE);
                next.setVisibility(View.INVISIBLE);
+               prev.setVisibility(View.VISIBLE);
             }
         }
         catch (JSONException e) {}
     }
-    public void next(int i){
+    public void next(){
         RadioGroup answer=findViewById(R.id.answer);
         int answer_button= answer.getCheckedRadioButtonId();
         if (answer_button != -1){
             RadioButton choice=findViewById(answer_button);
             String choice_text=String.valueOf(choice.getText());
-            if (choice_text.equals(correct_answer)) {
-                correct_count++;
+            ((MyApplication)this.getApplication()).set_temp_item(question_doing,choice_text);
+            question_doing++;
+            update(question_doing);
+            String temp_ans=((MyApplication)this.getApplication()).get_temp_item(question_doing);
+            if (!temp_ans.equals("")) {
+                RadioGroup rg = findViewById(R.id.answer);
+                RadioButton ansA = findViewById(R.id.choice_a);
+                String choice_a = String.valueOf(ansA.getText());
+                if (choice_a.equals(temp_ans)) {
+                    rg.check(R.id.choice_a);
+                }
+                RadioButton ansB = findViewById(R.id.choice_b);
+                String choice_b = String.valueOf(ansB.getText());
+                if (choice_b.equals(temp_ans)) {
+                    rg.check(R.id.choice_b);
+                }
+                RadioButton ansC = findViewById(R.id.choice_c);
+                String choice_c = String.valueOf(ansC.getText());
+                if (choice_c.equals(temp_ans)) {
+                    rg.check(R.id.choice_c);
+                }
+                RadioButton ansD = findViewById(R.id.choice_d);
+                String choice_d = String.valueOf(ansD.getText());
+                if (choice_d.equals(temp_ans)) {
+                    rg.check(R.id.choice_d);
+                }
             }
-            update(i);
 
         }
         else {
-
+            Context context = getApplicationContext();
+            Toast toast = Toast.makeText(context,"Please Select a answer",Toast.LENGTH_SHORT);
+            toast.show();
         }
 
     }
@@ -106,10 +146,9 @@ public class Questions extends Activity {
             if (choice_text.equals(correct_answer)) {
                 correct_count++;
             }
+            ((MyApplication)this.getApplication()).set_temp_item(question_doing,choice_text);
 
             Intent intent = new Intent(getApplicationContext(), Summary.class);
-            intent.putExtra("correct_count",correct_count);
-            intent.putExtra("number_of_question",number_of_question);
             startActivity(intent);
 
         }
@@ -119,6 +158,36 @@ public class Questions extends Activity {
             toast.show();
         }
 
+    }
+    public void prev(){
+        question_doing--;
+        update(question_doing);
+        String temp_ans=((MyApplication)this.getApplication()).get_temp_item(question_doing);
+        if (!temp_ans.equals("")) {
+            RadioGroup rg = findViewById(R.id.answer);
+            RadioButton ansA = findViewById(R.id.choice_a);
+            String choice_a = String.valueOf(ansA.getText());
+            if (choice_a.equals(temp_ans)) {
+                rg.check(R.id.choice_a);
+            }
+            RadioButton ansB = findViewById(R.id.choice_b);
+            String choice_b = String.valueOf(ansB.getText());
+            if (choice_b.equals(temp_ans)) {
+                rg.check(R.id.choice_b);
+            }
+            RadioButton ansC = findViewById(R.id.choice_c);
+            String choice_c = String.valueOf(ansC.getText());
+            if (choice_c.equals(temp_ans)) {
+                rg.check(R.id.choice_c);
+            }
+            RadioButton ansD = findViewById(R.id.choice_d);
+            String choice_d = String.valueOf(ansD.getText());
+            if (choice_d.equals(temp_ans)) {
+                rg.check(R.id.choice_d);
+            }
+
+
+        }
     }
     public String loadJSONFromAsset() {
         String json;
