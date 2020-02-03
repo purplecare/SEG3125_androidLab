@@ -14,5 +14,13 @@
     <string name="submit_button">Submit</string>
     <string name="next_button">Next</string>
     <string name="result_percentage">80%</string>
-
+    <string name="summary_title">Test Result</string>
+    <string name="restart">Try another test</string>
+    <string name="summary_body">Congratulations, You got 8/10 correct</string>
+    <string name="summary_passed">PASS</string>
+    <string name="passing_grade">Passing Grade(0-100%)</string>
+    <string name="passing_grade_default">50</string>
+    <string name="number_of_question">Number of Questions(Min:0, Max:5)</string>
+    <string name="noq_default">5</string>
+    <string name="advance_setting">Advance Setting</string>
 </resources>

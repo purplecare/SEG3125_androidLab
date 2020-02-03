@@ -1,0 +1,84 @@
+{
+  "CSI1102": [
+    {"body": "Which one is not a computer language",
+      "choice_a": "Java",
+      "choice_b": "C++",
+      "choice_c": "English",
+      "choice_d": "Python ",
+      "answer": "English"},
+    {"body": "Which one is not a language",
+      "choice_a": "Japanese",
+      "choice_b": "Chinese",
+      "choice_c": "Python",
+      "choice_d": "English",
+      "answer": "Python"},
+    {"body": "Which one is not a soccer club",
+      "choice_a": "Man Utd",
+      "choice_b": "LA Lakers",
+      "choice_c": "Real Madrid",
+      "choice_d": "Arsenal",
+      "answer": "LA Lakers"},
+    {"body": "Which one is not a GPU",
+      "choice_a": "i5-7500",
+      "choice_b": "RTX 2700",
+      "choice_c": "RX5700xt",
+      "choice_d": "1070Ti",
+      "answer": "i5-7500"},
+    {"body": "Which one is not avenger",
+      "choice_a": "Thanos",
+      "choice_b": "Iron Man",
+      "choice_c": "Thor",
+      "choice_d": "Black Panther",
+      "answer": "Thanos"}
+
+  ],
+  "SEG2105": [
+    {
+      "body": "Which one is not a country",
+      "choice_a": "China",
+      "choice_b": "France",
+      "choice_c": "Hawaii",
+      "choice_d": "Canada",
+      "answer": "Hawaii"
+    },
+    {
+      "body": "Which on is the 2019 World Champion",
+      "choice_a": "LA Lakers",
+      "choice_b": "LA Clippers",
+      "choice_c": "Milwaukee Bucks",
+      "choice_d": "Toronto Raptors",
+      "answer": "Toronto Raptors"
+    },
+    {
+      "body": "Which one has a real life adaptation",
+      "choice_a": "GTA V",
+      "choice_b": "Skyrium",
+      "choice_c": "Dark Soul",
+      "choice_d": "The Witcher",
+      "answer": "The Witcher"
+    },
+    {
+      "body": "How many months have 28 days",
+      "choice_a": "1",
+      "choice_b": "2",
+      "choice_c": "All of them",
+      "choice_d": "Depends if there is a leap year or not",
+      "answer": "All of them"
+    },
+    {
+      "body": "The answer is really big",
+      "choice_a": "THE ANSWER",
+      "choice_b": "really big",
+      "choice_c": "An elephant",
+      "choice_d": "1TB",
+      "answer": "really big"
+    }
+  ]
+}
+
+
+
+
+
+
+
