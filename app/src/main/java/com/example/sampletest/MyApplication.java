@@ -11,8 +11,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MyApplication extends Application {
-    int passing_grade=0;
-    int number_of_question= 2;
+    int passing_grade=50;
+    int number_of_question= 5;
     String selected_course;
     ArrayList<String> temp_answer=new ArrayList<>();
     ArrayList<String> correct_answer= new ArrayList<>();
